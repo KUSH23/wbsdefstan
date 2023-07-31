@@ -51,7 +51,7 @@ class FormController {
   }
 
   Future<bool> addNewWProjects({required WbsNewProjectWDataModel product}) async {
-    var url = "$URL/project/create/";
+    var url = "$URL/project/create";
     var client = http.Client();
     try{
       var response = await client.post(Uri.parse(url),

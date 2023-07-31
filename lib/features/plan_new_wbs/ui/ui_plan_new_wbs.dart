@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wbsessential/constants.dart';
 import 'package:wbsessential/features/plan_new_wbs/bloc/plan_new_wbs_bloc.dart';
-import 'package:wbsessential/features/plan_wbs/ui/wbs_tile_widget.dart';
 import 'package:wbsessential/models/sub_sub_wbs.dart';
-import 'package:wbsessential/models/sub_wbs.dart';
+import 'package:wbsessential/screens/main/main_screen.dart';
 
 class PlanNewWbsTab extends StatefulWidget {
   const PlanNewWbsTab({super.key, required this.planNewWbsBloc});
@@ -39,12 +38,12 @@ class _PlanNewWbsTabState extends State<PlanNewWbsTab> {
       listenWhen: (previous, current) => current is PlanNewWbsActionState,
       buildWhen: (previous, current) => current is !PlanNewWbsActionState,
       listener: (context, state) {
-        // if(state is PostsAdditionState || state is PostsUpdateFormState || state is PostsTransactionFormState || state is PostsProductDataFormState){
-        //   Navigator.push(context, MaterialPageRoute(builder: (context)=> Cart(postsBloc: widget.postsBloc, homeBloc:widget.homeBloc)));
-        // }
-        // }else if(state is PostsAdditionErrorState){
-        //   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Error!")));
-        // }
+        if(state is PlanNewWbsAdditionSuccessState){
+          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Added!")));
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> MainScreen()));
+        } else if(state is PlanNewWbsAdditionErrorState){
+          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Error!")));
+        }
       },
       builder: (context, state) {
         switch (state.runtimeType) {

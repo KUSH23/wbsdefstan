@@ -21,6 +21,6 @@ class PlanNewSubSubWbsLoadedSuccessState extends PlanNewWbsState {
 
 class PlanNewWbsLoadingErrorState extends PlanNewWbsState {}
 
-class PlanNewWbsAdditionState extends PlanNewWbsActionState {}
+class PlanNewWbsAdditionSuccessState extends PlanNewWbsActionState {}
 
-class WbsNewAdditionErrorState extends PlanNewWbsActionState {}
+class PlanNewWbsAdditionErrorState extends PlanNewWbsActionState {}

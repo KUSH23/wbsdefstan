@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:wbsessential/constants.dart';
 import 'package:wbsessential/controller/form_controller.dart';
 import 'package:wbsessential/controller/new_wbs_data.dart';
 import 'package:wbsessential/models/new_project_wbs.dart';
@@ -48,7 +47,10 @@ class PlanNewWbsBloc extends Bloc<PlanNewWbsEvent, PlanNewWbsState> {
 
     bool status2 = await FormController().addNewWProjects(product: WbsNewProjectWDataModel(
         projectid: newProjectId, project_name: newProjectName, project_items: tempprojectitemsList));
-
-    print(status2);
+    if (status2){
+      emit(PlanNewWbsAdditionSuccessState());
+    }else{
+      emit(PlanNewWbsAdditionErrorState());
+    }
   }
 }
