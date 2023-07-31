@@ -41,7 +41,7 @@ class _PlanWbsTabState extends State<PlanWbsTab> {
           case PlanWbsLoadingState:
             return Column(
               children: [
-                const SearchBar(),
+                const CSearchBar(),
                 Text(
                   "Loading...",
                   style: Theme.of(context).textTheme.titleMedium,
@@ -67,7 +67,7 @@ class _PlanWbsTabState extends State<PlanWbsTab> {
                     "WBS List $mywidth x $myheight",
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
-                  const SearchBar(),
+                  const CSearchBar(),
                   DataTable(
                     columnSpacing: 5,
                     // minWidth: 600,
