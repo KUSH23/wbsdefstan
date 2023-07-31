@@ -151,8 +151,8 @@ class _ListProjectWbsState extends State<ListProjectWbs> {
                             ),
                             child: TextButton(
                               onPressed: (){
-                                Navigator.push(context, MaterialPageRoute(
-                                    builder: (context)=> ViewProjectTab(projectHomeBloc: projectHomeBloc,)));
+                                projectHomeBloc.add(ProjectHomeFetchEvent(pid: successState.sprojectwbsList[pageIndex].id));
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=> ViewProjectTab(projectHomeBloc: projectHomeBloc)));
                               },
                               child: Text(
                                 successState.sprojectwbsList[pageIndex].project_name,
