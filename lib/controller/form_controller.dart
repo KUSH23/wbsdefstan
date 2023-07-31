@@ -12,8 +12,8 @@ import 'package:wbsessential/models/wbs_main.dart';
 class FormController {
 
   // Google App Script Web URL.
-  static const String URL = "http://127.0.0.1:8000";
-
+  // static const String URL = "http://127.0.0.1:8000";
+  static const String URL = "http://wbs-env.eba-fj9we2jw.us-west-2.elasticbeanstalk.com";
   // Success Status Message
   static const STATUS_SUCCESS = "SUCCESS";
 
@@ -113,12 +113,7 @@ class FormController {
     // if(myitemname != null){url = "$URL?sheet=sheet1&cat=$myitemname";}
     return await http.get(Uri.parse(url)).then((response) {
       return postFromJson(response.body);
-      // final jsonbody = response.body;
-      // final jsonFeedback = jsonDecode(jsonbody);
-      // // print(jsonFeedback);
-      // final results = jsonFeedback as List;
-      // print(results);
-      // return results.map((json) => WbsSubSubDataModel.fromJson(json)).toList();
+      
     });
   }
 
@@ -127,11 +122,7 @@ class FormController {
     // if(myitemname != null){url = "$URL?sheet=sheet1&cat=$myitemname";}
     return await http.get(Uri.parse(url)).then((response) {
       return projectFromJson(response.body);
-      final jsonbody = response.body;
-      final jsonFeedback = jsonDecode(jsonbody);
-      final results = jsonFeedback as List;
-      print(results);
-      return results.map((json) => WbsNewProjectDataModel.fromJson(json)).toList();
+
     });
   }
 
